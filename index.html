@@ -129,28 +129,26 @@
     }
 
 
+    const validations = {
+      username: validateUsername,
+      password: validatePassword
+    }
+
+
     // add validation listeners 
 
-    const usernames = document.getElementsByName('username');
+    function addValidations(name) {
+      const inputList = document.getElementsByName(name);
 
-    usernames.forEach(function (el) {
-      el.addEventListener("blur", validateUsername, true);
+      inputList.forEach(function (el) {
+        el.addEventListener("blur", validations[name], true);
+      });
 
-    });
+    }
 
+    addValidations('username');
 
-    const passwords = document.getElementsByName('password');
-
-    passwords.forEach(function (el) {
-      el.addEventListener("blur", validatePassword, true);
-
-    });
-
-
-
-    // const passwordEl = document.getElementById('user-password-input');
-
-    // passwordEl.addEventListener("blur", validatePassword, true);
+    addValidations('password');
 
 
   </script>
