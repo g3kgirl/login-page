@@ -36,13 +36,13 @@
           <div class="input-box">
             <label for="">Username</label>
             <input type="text" name="username">
-            <small class="error-text" id="name-error"></small>
+            <small class="error-text"></small>
           </div>
 
           <div class="input-box">
             <label for="">Password</label>
             <input type="password" name="password" />
-            <small class="error-text" id="password-error"></small>
+            <small class="error-text"></small>
           </div>
 
           <div class="input-box">
@@ -64,14 +64,14 @@
           </div>
           <div class="input-box">
             <label for="">Email</label>
-            <input type="email" name="Email" id="user-email-input" />
-            <small class="error-text" id="email-error"></small>
+            <input type="email" name="email" />
+            <small class="error-text"></small>
           </div>
 
           <div class="input-box">
             <label for="">Password</label>
-            <input type="password" name="password" id="users-password-input" />
-            <small class="error-text" id="password-errors"></small>
+            <input type="password" name="password" />
+            <small class="error-text"></small>
           </div>
 
           <div class="input-box">
@@ -128,10 +128,21 @@
       }
     }
 
+    function validateEmail(ev) {
+      const el = ev.target;
+      const value = el.value;
+
+      if (value.length == 0) {
+        el.nextElementSibling.textContent = "Email is required";
+        return false;
+      }
+    }
+
 
     const validations = {
       username: validateUsername,
-      password: validatePassword
+      password: validatePassword,
+      email: validateEmail
     }
 
 
@@ -146,9 +157,12 @@
 
     }
 
-    addValidations('username');
 
-    addValidations('password');
+    const inputTypes = ['username', 'password', 'email'];
+
+    inputTypes.forEach(function (name) {
+      addValidations(name);
+    });
 
 
   </script>
