@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* div {
+  border: 1px solid gray;
+} */
+
+.page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.panel {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  width: 40%;
+  text-align: center;
+  background-image: url(/images/left-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.right {
+  width: 60%;
+  background: #0a5971;
+}
+
+.overlay {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.intro-panel {
+  color: white;
+}
+
+label,
+input {
+  display: block;
+}
+
+input {
+  background: transparent;
+  border: 1px solid #8080803b;
+  border-radius: 2px;
+}
+
+input:focus {
+  outline: none;
+}
+
+form {
+  background: transparent;
+  padding: 18px;
+  border-radius: 3px;
+}
+
+.form-panel {
+  padding: 25px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 0px 11px 9px #f3f0f04d;
+}
+
+.input-box {
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.error-text {
+  color: red;
+}

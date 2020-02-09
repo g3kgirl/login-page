@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>loginpage</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+
+  <div class="page">
+    <div class="left panel">
+      <div class="overlay panel">
+        <div class="intro-panel">
+          <h3>
+            Welcome
+          </h3>
+          <p>to</p>
+          <h2>My Site</h2>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="right panel">
+      <div class="form-panel">
+
+        <!-- login form -->
+        <form action="" style="display: block;">
+          <h3 class="title">Login</h3>
+          <div class="input-box">
+            <label for="">Username</label>
+            <input type="text" name="username">
+            <small class="error-text" id="name-error"></small>
+          </div>
+
+          <div class="input-box">
+            <label for="">Password</label>
+            <input type="password" name="password" />
+            <small class="error-text" id="password-error"></small>
+          </div>
+
+          <div class="input-box">
+            <input type="submit" value="login" class="btn" name="login">
+          </div>
+          <div class="input-box">
+            <a href="#" id="show-signup-btn">Signup</a>
+          </div>
+
+        </form>
+
+        <!-- signup form -->
+        <form action="" style="display: none;">
+          <h3 class="title">Signup</h3>
+          <div class="input-box">
+            <label for="">Username</label>
+            <input type="text" name="username">
+            <small class="error-text"></small>
+          </div>
+          <div class="input-box">
+            <label for="">Email</label>
+            <input type="email" name="Email" id="user-email-input" />
+            <small class="error-text" id="email-error"></small>
+          </div>
+
+          <div class="input-box">
+            <label for="">Password</label>
+            <input type="password" name="password" id="users-password-input" />
+            <small class="error-text" id="password-errors"></small>
+          </div>
+
+          <div class="input-box">
+            <input type="submit" value="signup" class="btn" name="login">
+          </div>
+          <div class="input-box">
+            <a href="#" id="show-login-btn">Login</a>
+
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.forms[0];
+    const signupForm = document.forms[1];
+    const showLoginBtn = document.getElementById('show-login-btn');
+    const showSignupBtn = document.getElementById('show-signup-btn');
+
+
+    showLoginBtn.addEventListener('click', () => {
+      loginForm.style.display = 'block';
+      signupForm.style.display = 'none';
+    });
+
+    showSignupBtn.addEventListener('click', () => {
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'block';
+    });
+
+
+    function validateUsername(ev) {
+      const el = ev.target;
+
+      if (el.value == "") {
+        el.style.borderColor = "red";
+        el.nextElementSibling.textContent = "username is required";
+        return false;
+      }
+    }
+
+
+    function validatePassword(ev) {
+      const el = ev.target;
+
+      if (el.value == "") {
+        el.style.borderColor = "red";
+        el.nextElementSibling.textContent = "Password is required";
+        return false;
+      }
+    }
+
+
+    // add validation listeners 
+
+    const usernames = document.getElementsByName('username');
+
+    usernames.forEach(function (el) {
+      el.addEventListener("blur", validateUsername, true);
+
+    });
+
+
+    const passwords = document.getElementsByName('password');
+
+    passwords.forEach(function (el) {
+      el.addEventListener("blur", validatePassword, true);
+
+    });
+
+
+
+    // const passwordEl = document.getElementById('user-password-input');
+
+    // passwordEl.addEventListener("blur", validatePassword, true);
+
+
+  </script>
+</body>
+
+</html>
